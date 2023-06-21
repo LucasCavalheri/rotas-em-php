@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Controllers;
+namespace App\controllers;
 
 class HomeController
 {
     public function index()
-    {
-        var_dump('home/index');
+    { 
+        return Controller::view('home', []);
     }
 }

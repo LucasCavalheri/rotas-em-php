@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Controllers;
+namespace App\controllers;
 
 class ContactController
 {
     public function index()
     {
-        var_dump('contact/index');
+        Controller::view('contact', []);
     }
 
     public function store()
     {
-        // var_dump('contact/store');
+        var_dump('contact/store');
     }
 }

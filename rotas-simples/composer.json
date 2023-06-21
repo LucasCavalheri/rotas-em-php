@@ -2,7 +2,8 @@
     "name": "cavalheri/rotas-simples",
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Controllers\\": "app/Controllers/"
         }
     },
     "authors": [
@@ -11,5 +12,7 @@
             "email": "cav.catecumenal@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "league/plates": "^3.5"
+    }
 }
