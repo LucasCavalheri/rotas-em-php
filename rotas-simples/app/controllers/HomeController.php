@@ -4,8 +4,10 @@ namespace App\controllers;
 
 class HomeController
 {
-    public function index()
+    public function index($params)
     { 
-        return Controller::view('home', []);
+        return Controller::view('home', [
+            
+        ]);
     }
 }

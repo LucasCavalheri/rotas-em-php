@@ -16,7 +16,8 @@ try {
         throw new \Exception("A rota {$uri} não existe");
     }
 
-     $router[$request][$uri];
+    $controller = $router[$request][$uri];
+    $controller();
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
