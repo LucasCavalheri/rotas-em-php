@@ -1,0 +1,15 @@
+{
+    "name": "cavalheri/rotas-simples-com-poo",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "LucasCavalheri",
+            "email": "cav.catecumenal@gmail.com"
+        }
+    ],
+    "require": {}
+}
