@@ -34,14 +34,15 @@ class Router
     {
         return [
             'GET' => [
-                '/' => self::load('HomeController', 'index'),
-                '/contact' =>  self::load('ContactController', 'index'),
+                '/' => fn () => self::load('HomeController', 'index'),
+                '/contact' => fn () => self::load('ContactController', 'index'),
+                '/product' => fn () => self::load('ProductController', 'index'),
             ],
             'POST' => [
-                '/contact' => self::load('ContactController', 'store'),
+                '/contact' => fn () => self::load('ContactController', 'store'),
             ],
             'PUT' => [
-                '/product' => self::load('ProductController', 'update'),
+                '/product' => fn () => self::load('ProductController', 'update'),
             ]
         ];
     }
@@ -62,6 +63,12 @@ class Router
             }
 
             $router = $routes[$request][$uri];
+
+            if (!is_callable($router)) {
+                throw new \Exception("A Rota: {$uri} não é uma função\n");
+            }
+
+            $router();
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
