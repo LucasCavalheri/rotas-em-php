@@ -2,6 +2,9 @@
 
 namespace app\routes;
 
+use app\helpers\Request;
+use app\helpers\Uri;
+
 class Router
 {
     const CONTROLLER_NAMESPACE = 'app\\controllers';
@@ -41,5 +44,26 @@ class Router
                 '/product' => self::load('ProductController', 'update'),
             ]
         ];
+    }
+
+    public static function execute()
+    {
+        try {
+            $routes = self::routes();
+            $request = Request::get();
+            $uri = Uri::get('path');
+
+            if (!isset($routes[$request])) {
+                throw new \Exception("O Método: {$request} não é suportado\n");
+            }
+
+            if (!array_key_exists($uri, $routes[$request])) {
+                throw new \Exception("A Rota: {$uri} não existe\n");
+            }
+
+            $router = $routes[$request][$uri];
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
     }
 }
