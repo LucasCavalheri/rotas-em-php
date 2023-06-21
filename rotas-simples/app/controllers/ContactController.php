@@ -11,6 +11,6 @@ class ContactController
 
     public function store()
     {
-        var_dump('contact/store');
+        // var_dump('contact/store');
     }
 }
